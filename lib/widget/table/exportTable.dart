@@ -82,27 +82,27 @@ class _TableCsvPreviewState extends State<TableCsvPreview> {
                         onSort: (int columnIndex, bool ascending) => _sort<num>(
                             (dataset d) => d.id, columnIndex, ascending)),
                     DataColumn(
-                        label: const Text('Field01'),
+                        label: const Text('DATE'),
                         onSort: (int columnIndex, bool ascending) =>
                             _sort<String>(
                                 (dataset d) => d.f01, columnIndex, ascending)),
                     DataColumn(
-                        label: const Text('Field02'),
+                        label: const Text('ORDER'),
                         onSort: (int columnIndex, bool ascending) =>
                             _sort<String>(
                                 (dataset d) => d.f02, columnIndex, ascending)),
                     DataColumn(
-                        label: const Text('Field03'),
+                        label: const Text('CONDITION'),
                         onSort: (int columnIndex, bool ascending) =>
                             _sort<String>(
                                 (dataset d) => d.f03, columnIndex, ascending)),
                     DataColumn(
-                        label: const Text('Field04'),
+                        label: const Text('GOOD'),
                         onSort: (int columnIndex, bool ascending) =>
                             _sort<String>(
                                 (dataset d) => d.f04, columnIndex, ascending)),
                     DataColumn(
-                        label: const Text('Field05'),
+                        label: const Text('NG'),
                         onSort: (int columnIndex, bool ascending) =>
                             _sort<String>(
                                 (dataset d) => d.f05, columnIndex, ascending)),

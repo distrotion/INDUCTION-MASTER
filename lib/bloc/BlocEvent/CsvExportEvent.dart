@@ -47,10 +47,10 @@ class CsvExport_Bloc extends Bloc<CsvExport_Event, List<dataset>> {
         output.add(dataset(
           id: i,
           f01: data[i]['date'].toString(),
-          f02: data[i]['Condition No'].toString(),
-          f03: (data[i]['G']).toString(),
-          f04: (data[i]['NG']).toString(),
-          f05: '',
+          f02: data[i]['BARCODE'].toString(),
+          f03: (data[i]['Condition No']).toString(),
+          f04: (data[i]['G']).toString(),
+          f05: (data[i]['NG']).toString(),
         ));
 
         // row.f01 = ;
