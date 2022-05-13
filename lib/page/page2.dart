@@ -3,6 +3,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/BlocEvent/01-getactualdata.dart';
 import '../bloc/BlocEvent/CsvExportEvent.dart';
 import '../data/datadummy.dart';
 import '../data/global.dart';
@@ -18,8 +19,24 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Page2Body();
-    ;
+    // DHtimer.cancel();
+    return Page2BlocBody();
+  }
+}
+
+class Page2BlocBody extends StatelessWidget {
+  /// {@macro counter_page}
+  const Page2BlocBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+        create: (_) => ACTUALDATA_Bloc(),
+        child: BlocBuilder<ACTUALDATA_Bloc, actDATAmodel>(
+          builder: (context, data) {
+            return Page2Body();
+          },
+        ));
   }
 }
 
@@ -137,11 +154,12 @@ ExpCSV(List data) {
     List<dynamic> row = [];
     if (i == -1) {
       row.add('date');
+      row.add('ORDER'); //F01
       row.add('Condition No');
-      row.add('G');
-      row.add('NG');
-      row.add(' ');
-      row.add('1st output VOLT set');
+      row.add('G'); //F02
+      row.add('NG'); //F03
+      row.add(' '); //F04
+      row.add('1st output VOLT set'); //F05
       row.add('1st output VOLT MEAS CURRENT');
       row.add('1st output VOLT MEAS MIN');
       row.add('1st output VOLT MEAS MAX');
@@ -153,7 +171,7 @@ ExpCSV(List data) {
       row.add('1st HEATING TEMP MEAS MAX');
       row.add('1st HEATING SET TIME');
       row.add('1st HEATING MEAS TIME');
-      row.add(' ');
+      row.add(' '); //17
       row.add('2nd output VOLT set');
       row.add('2nd output VOLT MEAS CURRENT');
       row.add('2nd output VOLT MEAS MIN');
@@ -168,7 +186,7 @@ ExpCSV(List data) {
       row.add('2nd HEATING WAIT MEAS TIME');
       row.add('2nd HEATING SET TIME');
       row.add('2nd HEATING MEAS TIME');
-      row.add(' ');
+      row.add(' '); //32
       row.add('3th output VOLT set');
       row.add('3th output VOLT MEAS CURRENT');
       row.add('3th output VOLT MEAS MIN');
@@ -183,7 +201,7 @@ ExpCSV(List data) {
       row.add('3th HEATING WAIT MEAS TIME');
       row.add('3th HEATING SET TIME');
       row.add('3th HEATING MEAS TIME');
-      row.add(' ');
+      row.add(' '); //47
       row.add('4th output VOLT set');
       row.add('4th output VOLT MEAS CURRENT');
       row.add('4th output VOLT MEAS MIN');
@@ -198,14 +216,15 @@ ExpCSV(List data) {
       row.add('4th HEATING WAIT MEAS TIME');
       row.add('4th HEATING SET TIME');
       row.add('4th HEATING MEAS TIME');
-      row.add(' ');
+      row.add(' '); //62
       row.add('AIR COOLING TIME SET');
       row.add('AIR COOLING TIME MEAS');
       row.add('HEAD CENTER REV');
       row.add('TAIL CENTER REV');
-      row.add('CYCLE TIME');
+      row.add('CYCLE TIME'); //F67
     } else {
       row.add(data[i]['date']);
+      row.add(data[i]['BARCODE']);
       row.add(data[i]['Condition No']);
       row.add(data[i]['G']);
       row.add(data[i]['NG']);
@@ -222,7 +241,7 @@ ExpCSV(List data) {
       row.add(data[i]['1st HEATING TEMP MEAS MAX']);
       row.add(data[i]['1st HEATING SET TIME']);
       row.add(data[i]['1st HEATING MEAS TIME']);
-      row.add(' ');
+      row.add(' '); //18
       row.add(data[i]['2nd output VOLT set']);
       row.add(data[i]['2nd output VOLT MEAS CURRENT']);
       row.add(data[i]['2nd output VOLT MEAS MIN']);
@@ -237,7 +256,7 @@ ExpCSV(List data) {
       row.add(data[i]['2nd HEATING WAIT MEAS TIME']);
       row.add(data[i]['2nd HEATING SET TIME']);
       row.add(data[i]['2nd HEATING MEAS TIME']);
-      row.add(' ');
+      row.add(' '); //34
       row.add(data[i]['3th output VOLT set']);
       row.add(data[i]['3th output VOLT MEAS CURRENT']);
       row.add(data[i]['3th output VOLT MEAS MIN']);
@@ -252,7 +271,7 @@ ExpCSV(List data) {
       row.add(data[i]['3th HEATING WAIT MEAS TIME']);
       row.add(data[i]['3th HEATING SET TIME']);
       row.add(data[i]['3th HEATING MEAS TIME']);
-      row.add(' ');
+      row.add(' '); //49
       row.add(data[i]['4th output VOLT set']);
       row.add(data[i]['4th output VOLT MEAS CURRENT']);
       row.add(data[i]['4th output VOLT MEAS MIN']);
@@ -267,7 +286,7 @@ ExpCSV(List data) {
       row.add(data[i]['4th HEATING WAIT MEAS TIME']);
       row.add(data[i]['4th HEATING SET TIME']);
       row.add(data[i]['4th HEATING MEAS TIME']);
-      row.add(' ');
+      row.add(' '); //64
       row.add(data[i]['AIR COOLING TIME SET']);
       row.add(data[i]['AIR COOLING TIME MEAS']);
       row.add(data[i]['HEAD CENTER REV']);

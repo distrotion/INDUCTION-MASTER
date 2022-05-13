@@ -175,3 +175,142 @@ class dataset {
 }
 
 List<dataset> ZeroDataset = [];
+
+class actDATAmodel {
+  actDATAmodel(
+      {this.ConditionNo = '', //D900
+      this.G = '', //D1902
+      this.NG = '', //D1904
+      this.s1stoutputVOLTset = '', //D710
+      this.s1stoutputVOLTMEASCURRENT = '', //D2000
+      this.s1stoutputVOLTMEASMIN = '', //D2101
+      this.s1stoutputVOLTMEASMAX = '', //D2100
+      this.s1stoutputPOWERMEASCURRENT = '', //D2001
+      this.s1stoutputPOWERMEASMIN = '', //D2103
+      this.s1stoutputPOWERMEASMAX = '', //D2102
+      this.s1stHEATINGTEMPMEASCURRENT = '', //D2017
+      this.s1stHEATINGTEMPMEASMIN = '', //D2118
+      this.s1stHEATINGTEMPMEASMAX = '', //D2117
+      this.s1stHEATINGSETTIME = '0', //D713
+      this.s1stHEATINGMEASTIME = '0', //D2006
+
+      this.s2stoutputVOLTset = '', //D711
+      this.s2stoutputVOLTMEASCURRENT = '', //D2002
+      this.s2stoutputVOLTMEASMIN = '', //D2105
+      this.s2stoutputVOLTMEASMAX = '', //D2104
+      this.s2stoutputPOWERMEASCURRENT = '', //D2003
+      this.s2stoutputPOWERMEASMIN = '', //D2107
+      this.s2stoutputPOWERMEASMAX = '', //D2106
+      this.s2stHEATINGTEMPMEASCURRENT = '', //D2018
+      this.s2stHEATINGTEMPMEASMIN = '', //D2120
+      this.s2stHEATINGTEMPMEASMAX = '', //D2119
+      this.s2ndHEATINGWAITSETTIME = '0', //D714
+      this.s2ndHEATINGWAITMEASTIME = '0', //D2007
+      this.s2stHEATINGSETTIME = '0', //D715
+      this.s2stHEATINGMEASTIME = '0', //D2008
+
+      this.s3stoutputVOLTset = '', //D712
+      this.s3stoutputVOLTMEASCURRENT = '', //D2004
+      this.s3stoutputVOLTMEASMIN = '', //D2109
+      this.s3stoutputVOLTMEASMAX = '', //D2108
+      this.s3stoutputPOWERMEASCURRENT = '', //D2005
+      this.s3stoutputPOWERMEASMIN = '', //D2111
+      this.s3stoutputPOWERMEASMAX = '', //D2110
+      this.s3stHEATINGTEMPMEASCURRENT = '', //D2019
+      this.s3stHEATINGTEMPMEASMIN = '', //D2122
+      this.s3stHEATINGTEMPMEASMAX = '', //D2121
+      this.s3ndHEATINGWAITSETTIME = '0', //D716
+      this.s3ndHEATINGWAITMEASTIME = '0', //D2009
+      this.s3stHEATINGSETTIME = '0', //D717
+      this.s3stHEATINGMEASTIME = '0', //D2010
+
+      this.s4stoutputVOLTset = '', //D721
+      this.s4stoutputVOLTMEASCURRENT = '', //D2014
+      this.s4stoutputVOLTMEASMIN = '', //D2113
+      this.s4stoutputVOLTMEASMAX = '', //D2112
+      this.s4stoutputPOWERMEASCURRENT = '', //D2015
+      this.s4stoutputPOWERMEASMIN = '', //D2115
+      this.s4stoutputPOWERMEASMAX = '', //D2114
+      this.s4stHEATINGTEMPMEASCURRENT = '', //D2016
+      this.s4stHEATINGTEMPMEASMIN = '', //D2124
+      this.s4stHEATINGTEMPMEASMAX = '', //D2123
+      this.s4ndHEATINGWAITSETTIME = '0', //D719
+      this.s4ndHEATINGWAITMEASTIME = '0', //D2012
+      this.s4stHEATINGSETTIME = '0', //D720
+      this.s4stHEATINGMEASTIME = '0', //D2013
+
+      this.AIRCOOLINGTIMESET = '0', //D718
+      this.AIRCOOLINGTIMEMEAS = '0', //D2011
+      this.HEADCENTERREV = '', //D2535
+      this.TAILCENTERREV = '', //D2635
+      this.CYCLETIME = '0', //D2230
+      this.BARCODE = ''});
+
+  String ConditionNo; //D900
+  String G; //D1902
+  String NG; //D1904
+  String s1stoutputVOLTset; //D710
+  String s1stoutputVOLTMEASCURRENT; //
+  String s1stoutputVOLTMEASMIN; //
+  String s1stoutputVOLTMEASMAX; //
+  String s1stoutputPOWERMEASCURRENT; //
+  String s1stoutputPOWERMEASMIN; //
+  String s1stoutputPOWERMEASMAX; //
+  String s1stHEATINGTEMPMEASCURRENT; //
+  String s1stHEATINGTEMPMEASMIN; //
+  String s1stHEATINGTEMPMEASMAX; //
+  String s1stHEATINGSETTIME; //
+  String s1stHEATINGMEASTIME; //
+
+  String s2stoutputVOLTset; //D
+  String s2stoutputVOLTMEASCURRENT; //
+  String s2stoutputVOLTMEASMIN; //
+  String s2stoutputVOLTMEASMAX; //
+  String s2stoutputPOWERMEASCURRENT; //
+  String s2stoutputPOWERMEASMIN; //
+  String s2stoutputPOWERMEASMAX; //
+  String s2stHEATINGTEMPMEASCURRENT; //
+  String s2stHEATINGTEMPMEASMIN; //
+  String s2stHEATINGTEMPMEASMAX; //
+  String s2ndHEATINGWAITSETTIME;
+  String s2ndHEATINGWAITMEASTIME;
+  String s2stHEATINGSETTIME; //
+  String s2stHEATINGMEASTIME; //
+
+  String s3stoutputVOLTset; //D
+  String s3stoutputVOLTMEASCURRENT; //
+  String s3stoutputVOLTMEASMIN; //
+  String s3stoutputVOLTMEASMAX; //
+  String s3stoutputPOWERMEASCURRENT; //
+  String s3stoutputPOWERMEASMIN; //
+  String s3stoutputPOWERMEASMAX; //
+  String s3stHEATINGTEMPMEASCURRENT; //
+  String s3stHEATINGTEMPMEASMIN; //
+  String s3stHEATINGTEMPMEASMAX; //
+  String s3ndHEATINGWAITSETTIME;
+  String s3ndHEATINGWAITMEASTIME;
+  String s3stHEATINGSETTIME; //
+  String s3stHEATINGMEASTIME; //
+
+  String s4stoutputVOLTset; //D
+  String s4stoutputVOLTMEASCURRENT; //
+  String s4stoutputVOLTMEASMIN; //
+  String s4stoutputVOLTMEASMAX; //
+  String s4stoutputPOWERMEASCURRENT; //
+  String s4stoutputPOWERMEASMIN; //
+  String s4stoutputPOWERMEASMAX; //
+  String s4stHEATINGTEMPMEASCURRENT; //
+  String s4stHEATINGTEMPMEASMIN; //
+  String s4stHEATINGTEMPMEASMAX; //
+  String s4ndHEATINGWAITSETTIME;
+  String s4ndHEATINGWAITMEASTIME;
+  String s4stHEATINGSETTIME; //
+  String s4stHEATINGMEASTIME; //
+
+  String AIRCOOLINGTIMESET;
+  String AIRCOOLINGTIMEMEAS;
+  String HEADCENTERREV;
+  String TAILCENTERREV;
+  String CYCLETIME;
+  String BARCODE;
+}

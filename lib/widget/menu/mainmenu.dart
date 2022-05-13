@@ -7,6 +7,8 @@ import '../../page/page4.dart';
 import '../../page/page5.dart';
 import 'sub_widget.dart';
 
+late BuildContext MenuContext;
+
 class MainMenu extends StatefulWidget {
   MainMenu({Key? key}) : super(key: key);
 
@@ -17,6 +19,7 @@ class MainMenu extends StatefulWidget {
 class _MainMenuState extends State<MainMenu> {
   @override
   Widget build(BuildContext context) {
+    MenuContext = context;
     //---------------------------------------------------------------
 
     return Container(
@@ -69,10 +72,10 @@ class Data_Menu_mainmenu extends StatelessWidget {
                       ),
                     ),
                   ))),
-          // menu_normal(
-          //   name: "Page1",
-          //   page: Page1(),
-          // ),
+          menu_normal(
+            name: "DASHBOARD",
+            page: Page1(),
+          ),
           menu_normal(
             name: "Export Data",
             page: Page2(),
@@ -113,7 +116,7 @@ class Logomenu extends StatelessWidget {
         padding: const EdgeInsetsDirectional.all(1),
         child: Container(
           height: 35,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
               image: AssetImage("assets/images/logo_tpk.png"),

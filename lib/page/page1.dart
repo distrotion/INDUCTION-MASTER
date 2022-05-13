@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 //---------------------------------------------------------
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../bloc/BlocEvent/01-getactualdata.dart';
 import '../bloc/cubit/NotificationEvent.dart';
+import '../data/model.dart';
+import '01DASHBOARD/dashboardmain.dart';
 import 'page0.dart';
 import '../data/global.dart';
 
@@ -14,82 +17,36 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Page1Body();
+    return Page1BlocBody();
+  }
+}
+
+class Page1BlocBody extends StatelessWidget {
+  /// {@macro counter_page}
+  const Page1BlocBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+        create: (_) => ACTUALDATA_Bloc(),
+        child: BlocBuilder<ACTUALDATA_Bloc, actDATAmodel>(
+          builder: (context, data) {
+            return Page1Body(
+              data: data,
+            );
+          },
+        ));
   }
 }
 
 class Page1Body extends StatelessWidget {
-  const Page1Body({Key? key}) : super(key: key);
-
+  Page1Body({Key? key, this.data}) : super(key: key);
+  actDATAmodel? data;
   @override
   Widget build(BuildContext context) {
-    return testbody();
+    return Center(
+        child: DashBoard(
+      data: data,
+    ));
   }
 }
-
-class testbody extends StatefulWidget {
-  // const testbody({Key? key}) : super(key: key);
-  @override
-  _testbodyState createState() => _testbodyState();
-}
-
-class _testbodyState extends State<testbody> {
-  int x = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    Container subpage1 = Container(
-      height: 200,
-      width: 200,
-      color: Colors.red,
-    );
-    Container subpage2 = Container(
-      height: 200,
-      width: 200,
-      color: Colors.pink,
-    );
-    Container subpage3 = Container(
-      height: 200,
-      width: 200,
-      color: Colors.orange,
-    );
-    Container out;
-    if (x == 0) {
-      out = subpage1;
-    } else if (x == 1) {
-      out = subpage2;
-    } else {
-      out = subpage3;
-    }
-
-    return Column(
-      children: [
-        Row(
-          children: [
-            InkWell(
-              onTap: () {},
-              child: Container(
-                height: 25,
-                width: 100,
-                color: Colors.black,
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Container(
-                height: 25,
-                width: 100,
-                color: Colors.black45,
-              ),
-            ),
-          ],
-        ),
-        Center(child: out)
-      ],
-    );
-  }
-}
-
-
-//BlocProvider.of<SwPageCubit>(context).togglePage(page);
-// BlocPageRebuild blocPageRebuild = BlocProvider.of<BlocPageRebuild>(context).rebuildPage();

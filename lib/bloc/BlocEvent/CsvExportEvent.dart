@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
@@ -25,13 +27,22 @@ class CsvExport_Bloc extends Bloc<CsvExport_Event, List<dataset>> {
       List<dataset> toAdd, Emitter<List<dataset>> emit) async {
     final response = await Dio().post(
       server + "getcsvdata",
-      data: {"date": selectedDate},
+      data: {"date": "${selectedDate.toLocal()}".split(' ')[0]},
     );
-    var data = response.data;
-    csvdata = data;
+
+    // final response = await http.post(Uri.parse(server + "getcsvdata"), body: {
+    //   "date": selectedDate.toString()
+    // }, headers: {
+    //   "Accept": "application/json",
+    //   "Access-Control_Allow_Origin": "*"
+    // });
+
     List<dataset> output = [];
 
     if (response.statusCode == 200) {
+      // var data = jsonDecode(response.data);
+      var data = response.data;
+      csvdata = data;
       for (int i = 0; i < data.length; i++) {
         output.add(dataset(
           id: i,
