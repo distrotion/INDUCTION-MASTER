@@ -1,11 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 
+import '../../data/global.dart';
 import '../../data/model.dart';
 
 //-------------------------------------------------
 
-String server = 'http://172.23.10.40:2500/';
+String server = Gserver;
 
 abstract class ACTUALDATA_Event {}
 

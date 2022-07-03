@@ -85,3 +85,7 @@ class actDATA {
 }
 
 late Timer DHtimer;
+
+String Gserver = 'http://172.23.10.40:2500/';
+// String GserverNEW = 'http://172.23.10.40:14500/';
+String GserverNEW = 'http://127.0.0.1:14500/';

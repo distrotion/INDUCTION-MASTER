@@ -73,21 +73,29 @@ class Data_Menu_mainmenu extends StatelessWidget {
                     ),
                   ))),
           menu_normal(
-            name: "DASHBOARD",
+            name: "IND DASHBOARD",
             page: Page1(),
           ),
           menu_normal(
-            name: "Export Data",
+            name: "IND Report",
             page: Page2(),
           ),
+          Container(
+            height: 1,
+            color: Colors.white,
+          ),
           // menu_normal(
-          //   name: "Page3",
+          //   name: "JGC DASHBOARD",
           //   page: Page3(),
           // ),
-          // menu_normal(
-          //   name: "Page4",
-          //   page: Page4(),
-          // ),
+          menu_normal(
+            name: "JGC Report",
+            page: Page4(),
+          ),
+          Container(
+            height: 1,
+            color: Colors.white,
+          ),
           // menu_normal(
           //   name: "Page5",
           //   page: Page5(),

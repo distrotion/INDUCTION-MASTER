@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../bloc/BlocEvent/04-JGCreport.dart';
+import '../bloc/cubit/Rebuild.dart';
+import '04JGCreport/JGCreportMAIN.dart';
+import '04JGCreport/JGCreportVAR.dart';
 import 'page0.dart';
 import '../data/global.dart';
 
@@ -7,22 +12,53 @@ class Page4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Page4Body();
+    return Page4REBUILD();
+  }
+}
+
+class Page4REBUILD extends StatelessWidget {
+  const Page4REBUILD({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<BlocPageRebuild, bool>(
+      builder: (_, e) {
+        return Page4BlocTableBody();
+      },
+    );
+  }
+}
+
+class Page4BlocTableBody extends StatelessWidget {
+  const Page4BlocTableBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+        create: (_) => JGCreportGET_Bloc(),
+        child: BlocBuilder<JGCreportGET_Bloc, datain>(
+          builder: (context, data) {
+            return Page4Body(
+              data: data,
+            );
+          },
+        ));
   }
 }
 
 class Page4Body extends StatelessWidget {
-  const Page4Body({Key? key}) : super(key: key);
+  Page4Body({
+    Key? key,
+    this.data,
+  }) : super(key: key);
+  datain? data;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        height: 100,
-        width: 100,
-        color: Colors.red,
-        child: const Text("PAGE 4"),
-      ),
+    return JGCreportMAIN(
+      data: data,
     );
   }
 }

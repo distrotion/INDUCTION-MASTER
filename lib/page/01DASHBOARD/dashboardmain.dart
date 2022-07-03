@@ -43,12 +43,14 @@ class _DashBoardBodyState extends State<DashBoardBody> {
   void initState() {
     super.initState();
 
-    Timer.periodic(const Duration(seconds: 2), (timmer) {
-      dhcontext.read<ACTUALDATA_Bloc>().add(ACTUALDATA_Pressed());
+    // Timer.periodic(const Duration(seconds: 2), (timmer) {
+    //   dhcontext.read<ACTUALDATA_Bloc>().add(ACTUALDATA_Pressed());
 
-      // timer.cancel();
-      DHtimer = timmer;
-    });
+    //   DHtimer = timmer;
+    // });
+
+    //----------
+    // timer.cancel();
   }
 
   @override
