@@ -84,13 +84,17 @@ class Data_Menu_mainmenu extends StatelessWidget {
             height: 1,
             color: Colors.white,
           ),
-          // menu_normal(
-          //   name: "JGC DASHBOARD",
-          //   page: Page3(),
-          // ),
+          menu_normal(
+            name: "JGC DASHBOARD",
+            page: Page3(),
+          ),
           menu_normal(
             name: "JGC Report",
             page: Page4(),
+          ),
+          menu_normal(
+            name: "JGC Report BY PO",
+            page: Page5(),
           ),
           Container(
             height: 1,

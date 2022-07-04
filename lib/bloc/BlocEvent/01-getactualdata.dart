@@ -6,7 +6,7 @@ import '../../data/model.dart';
 
 //-------------------------------------------------
 
-String server = Gserver;
+String server = GserverIND;
 
 abstract class ACTUALDATA_Event {}
 

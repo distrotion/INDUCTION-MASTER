@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/BlocEvent/CsvExportEvent.dart';
+import '../../data/global.dart';
 import '../../data/model.dart';
 import '../../widget/table/exportTable.dart';
 
@@ -21,6 +22,7 @@ class CsvPicker extends StatefulWidget {
 class _CsvPickerState extends State<CsvPicker> {
   @override
   Widget build(BuildContext context) {
+    Pagememory = 2;
     Future<void> _selectDate(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
           context: context,

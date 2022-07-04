@@ -43,11 +43,11 @@ class _DashBoardBodyState extends State<DashBoardBody> {
   void initState() {
     super.initState();
 
-    // Timer.periodic(const Duration(seconds: 2), (timmer) {
-    //   dhcontext.read<ACTUALDATA_Bloc>().add(ACTUALDATA_Pressed());
+    Timer.periodic(const Duration(seconds: 2), (timmer) {
+      dhcontext.read<ACTUALDATA_Bloc>().add(ACTUALDATA_Pressed());
 
-    //   DHtimer = timmer;
-    // });
+      DHtimer = timmer;
+    });
 
     //----------
     // timer.cancel();
@@ -56,6 +56,7 @@ class _DashBoardBodyState extends State<DashBoardBody> {
   @override
   Widget build(BuildContext context) {
     dhcontext = context;
+    Pagememory = 1;
 
     return Container(
       height: 1500,

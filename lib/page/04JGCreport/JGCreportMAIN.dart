@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/BlocEvent/04-JGCreport.dart';
 import '../../bloc/cubit/Rebuild.dart';
+import '../../data/global.dart';
 import '../../styles/TextStyle.dart';
 import '../../widget/common/Calendarwid.dart';
 import '../../widget/common/popup.dart';
@@ -19,7 +20,8 @@ class JGCreportMAIN extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(data!.STATUS);
+    Pagememory = 2;
+    // print(data!.STATUS);
     JGCreportMAINcontext = context;
     if (data!.STATUS == 'OK') {
       JGCreportVAR.DATEsum = data!.DATE;

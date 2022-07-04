@@ -7,6 +7,7 @@ String token = '';
 Widget CuPage = const Page0();
 int CuPageLV = 0;
 int UserLV = 0;
+int Pagememory = 0;
 
 class PageLevel {
   static int page01 = 1;
@@ -85,7 +86,9 @@ class actDATA {
 }
 
 late Timer DHtimer;
+late Timer JGC_DASHBOARDtimer;
 
-String Gserver = 'http://172.23.10.40:2500/';
-// String GserverNEW = 'http://172.23.10.40:14500/';
-String GserverNEW = 'http://127.0.0.1:14500/';
+String GserverIND = 'http://172.23.10.40:2500/';
+String GserverNEW = 'http://172.23.10.40:14500/';
+// String GserverNEW = 'http://127.0.0.1:14500/';
+String GserverJGC = 'http://172.23.10.60:1880/';

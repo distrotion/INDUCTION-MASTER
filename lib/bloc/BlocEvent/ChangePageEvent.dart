@@ -30,7 +30,12 @@ class ChangePage_Bloc extends Bloc<ChangePage_Event, Widget> {
 
     //   // BlocProvider.of<BlocNotification>(contextGB)
     //   //     .UpdateNotification("", "Error", enumNotificationlist.Error);
-    // DHtimer.cancel();
+    if (Pagememory == 1) {
+      DHtimer.cancel();
+    } else if (Pagememory == 3) {
+      JGC_DASHBOARDtimer.cancel();
+    }
+
     Navigator.pop(MenuContext);
 
     emit(CuPage);
