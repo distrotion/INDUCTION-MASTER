@@ -5,9 +5,12 @@ import '../../page/page2.dart';
 import '../../page/page3.dart';
 import '../../page/page4.dart';
 import '../../page/page5.dart';
+import '../../page/page6.dart';
+import '../../page/page7.dart';
 import 'sub_widget.dart';
 
 late BuildContext MenuContext;
+bool menupop01 = false;
 
 class MainMenu extends StatefulWidget {
   MainMenu({Key? key}) : super(key: key);
@@ -38,9 +41,13 @@ class _MainMenuState extends State<MainMenu> {
   }
 }
 
-class Data_Menu_mainmenu extends StatelessWidget {
-  //const Data_Menu_mainmenu({Key? key},this.pagein) : super(key: key);
+class Data_Menu_mainmenu extends StatefulWidget {
+  @override
+  State<Data_Menu_mainmenu> createState() => _Data_Menu_mainmenuState();
+}
 
+class _Data_Menu_mainmenuState extends State<Data_Menu_mainmenu> {
+  //const Data_Menu_mainmenu({Key? key},this.pagein) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,6 +87,79 @@ class Data_Menu_mainmenu extends StatelessWidget {
             name: "IND Report",
             page: Page2(),
           ),
+          // menu_normal(
+          //   name: "COIL",
+          //   page: Page6(),
+          // ),
+          InkWell(
+            onTap: () {
+              setState(() {
+                if (menupop01) {
+                  menupop01 = false;
+                } else {
+                  menupop01 = true;
+                }
+              });
+            },
+            child: SizedBox(
+              height: 50,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          right: 6.0, left: 6, top: 4.0, bottom: 4.0),
+                      child: Container(
+                        height: 24,
+                        width: 24,
+                        child: Icon(
+                          menupop01
+                              ? Icons.arrow_drop_up_outlined
+                              : Icons.arrow_drop_down_outlined,
+                          color: Colors.white,
+                        ),
+                        // decoration: BoxDecoration(
+                        //     image: DecorationImage(
+                        //         image: AssetImage(getShowHidePassword_ImgPath()),
+                        //         fit: BoxFit.fitHeight))
+                      ),
+                    ),
+                    const Text(
+                      "COIL MENU",
+                      style: TextStyle(
+                        fontFamily: 'Mitr',
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: 0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          if (menupop01) ...[
+            SizedBox(
+              height: 90,
+              child: Column(
+                children: [
+                  menu_sub(
+                    name: "COIL",
+                    page: Page6(),
+                    Lv: 1,
+                  ),
+                  menu_sub(
+                    name: "PATTERN",
+                    page: Page7(),
+                    Lv: 1,
+                  ),
+                ],
+              ),
+            )
+          ],
           Container(
             height: 1,
             color: Colors.white,
