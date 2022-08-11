@@ -8,7 +8,7 @@ import '../../page/P7INDPATTERN/INDPATTERNVar.dart';
 abstract class INDpatternDataSetEvent {}
 
 // String server = 'http://127.0.0.1:15000/';
-String server = GserverNEWTEST;
+String server = GserverNEW;
 
 class GetDataPressed extends INDpatternDataSetEvent {}
 

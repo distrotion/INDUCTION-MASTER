@@ -9,7 +9,7 @@ import '../../page/P6INDCOIL/datatest.dart';
 abstract class INDcoilDataSetEvent {}
 
 // String server = 'http://127.0.0.1:15000/';
-String server = GserverNEWTEST;
+String server = GserverNEW;
 
 class GetDataPressed extends INDcoilDataSetEvent {}
 

@@ -7,7 +7,7 @@ import '../../data/model.dart';
 abstract class INDcoilDROPDOWNDataSetEvent {}
 
 // String server = 'http://127.0.0.1:15000/';
-String server = GserverNEWTEST;
+String server = GserverNEW;
 
 class GetDataDropdown extends INDcoilDROPDOWNDataSetEvent {}
 
