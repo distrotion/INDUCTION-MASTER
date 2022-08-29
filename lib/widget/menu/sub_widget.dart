@@ -68,14 +68,14 @@ class menu_normal extends StatelessWidget {
 }
 
 class menu_sub extends StatelessWidget {
-  menu_sub(
-      {Key? key,
-      this.name,
-      this.icon,
-      required this.page,
-      required this.Lv,
-      this.tapcolor})
-      : super(key: key);
+  menu_sub({
+    Key? key,
+    this.name,
+    this.icon,
+    required this.page,
+    required this.Lv,
+    this.tapcolor,
+  }) : super(key: key);
   String? name;
   Widget page;
   String? icon;
