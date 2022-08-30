@@ -187,7 +187,10 @@ class _INCOILBYDATEmainState extends State<INCOILBYDATEmain> {
                     color: Colors.white,
                     border: Border.all(color: Colors.black, width: 2),
                   ),
-                  child: Center(child: Text("Coil ${i + 1}")),
+                  child: Center(child: Text("Condition ${i + 1}")),
+                ),
+                SizedBox(
+                  width: 5,
                 ),
                 Container(
                   width: 300,

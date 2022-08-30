@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/BlocEvent/06-INDcoil.dart';
-import '../../bloc/BlocEvent/06-INDcoilDROPDOWN.dart';
+import '../../bloc/BlocEvent/06-1-INDcoil.dart';
+import '../../bloc/BlocEvent/06-2-INDcoilDROPDOWN.dart';
 import '../../bloc/Cubit/Rebuild.dart';
 import '../../data/global.dart';
 import '../../data/model.dart';
@@ -168,11 +168,11 @@ class _INDcoilDataTableState extends State<INDcoilDataTable> {
                         onSort: (int columnIndex, bool ascending) =>
                             _sort<String>(
                                 (dataset d) => d.f05, columnIndex, ascending)),
-                    DataColumn(
-                        label: const Text('COUNT'),
-                        onSort: (int columnIndex, bool ascending) =>
-                            _sort<String>(
-                                (dataset d) => d.f04, columnIndex, ascending)),
+                    // DataColumn(
+                    //     label: const Text('COUNT'),
+                    //     onSort: (int columnIndex, bool ascending) =>
+                    //         _sort<String>(
+                    //             (dataset d) => d.f04, columnIndex, ascending)),
                     DataColumn(
                         label: const Text('STATUS'),
                         onSort: (int columnIndex, bool ascending) =>
@@ -262,18 +262,35 @@ class _MyData extends DataTableSource {
           DataCell(Text(data.f06)),
           DataCell(Text(data.f03)),
           DataCell(Text(data.f05)),
-          DataCell(Text(data.f04)),
+          // DataCell(Text(data.f04)),
           DataCell(Text(data.f07)),
           // DataCell(Text(data.f04)),
           DataCell(Row(
             children: [
               InkWell(
                 onTap: () {
+                  INDcoil.Snc = false;
+                  INDcoil.Scon01 = data.f01;
+                  // INDcoil.Scon02 = data.f02;
+                  // INDcoil.Scon03 = data.f03;
+                  // INDcoil.con04 = data.f04;
+                  // INDcoil.Scon05 = data.f05;
+                  // INDcoil.Scon06 = data.f06;
+                  // INDcoil.Scon07 = data.f07;
+                  INDcoilSEEConsoleBox();
+                  // print(data.f01);
+                },
+                child: SizedBox(
+                  child: Icon(Icons.assessment_rounded),
+                ),
+              ),
+              InkWell(
+                onTap: () {
                   INDcoil.nc = false;
                   INDcoil.con01 = data.f01;
                   INDcoil.con02 = data.f02;
                   INDcoil.con03 = data.f03;
-                  INDcoil.con04 = data.f04;
+                  // INDcoil.con04 = data.f04;
                   INDcoil.con05 = data.f05;
                   INDcoil.con06 = data.f06;
                   INDcoil.con07 = data.f07;

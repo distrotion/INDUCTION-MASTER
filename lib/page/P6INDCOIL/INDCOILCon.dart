@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/BlocEvent/06-INDcoil.dart';
+import '../../bloc/BlocEvent/06-1-INDcoil.dart';
+import '../../bloc/BlocEvent/06-3-INDgetAc.dart';
 import '../../data/global.dart';
+import '../../data/model.dart';
 import '../../styles/TextStyle.dart';
 import '../../widget/common/Advancedropdown.dart';
 import '../../widget/common/ComInputText.dart';
@@ -210,3 +212,201 @@ class _INDcoilconSTfullState extends State<INDcoilconSTfull> {
     );
   }
 }
+
+void INDcoilSEEConsoleBox() {
+  showDialog(
+    context: INDcoilContexttable,
+    barrierDismissible: true,
+    builder: (BuildContext context) {
+      return INDcoilSEEconSTfullBody();
+    },
+  );
+}
+
+class INDcoilSEEconSTfullBody extends StatelessWidget {
+  /// {@macro counter_page}
+  const INDcoilSEEconSTfullBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+        create: (_) => INDgetACDataSetBloc(),
+        child: BlocBuilder<INDgetACDataSetBloc, List<dataset>>(
+          builder: (context, data) {
+            return INDcoilSEEconSTfull(
+              data: data,
+            );
+          },
+        ));
+  }
+}
+
+class INDcoilSEEconSTfull extends StatefulWidget {
+  INDcoilSEEconSTfull({Key? key, this.data}) : super(key: key);
+  List<dataset>? data;
+  @override
+  State<INDcoilSEEconSTfull> createState() => _INDcoilSEEconSTfullState();
+}
+
+class _INDcoilSEEconSTfullState extends State<INDcoilSEEconSTfull> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<INDgetACDataSetBloc>().add(GetDataPressedX());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    List<dataset> _data = widget.data ?? [];
+    print(_data);
+    return SizedBox(
+      // color: Colors.blue,
+      child: Dialog(
+        child: Container(
+          height: 200,
+          child: SingleChildScrollView(
+            // scrollDirection: Axis.horizontal,
+            child: Container(
+                height: 200,
+                width: 400,
+                color: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    for (int i = 0; i < _data.length; i++)
+                      _BOXsow(
+                        data1: _data[i].f02,
+                        data2: _data[i].f06,
+                        data3: _data[i].f03,
+                        data4: _data[i].f05,
+                        data5: _data[i].f04,
+                        data6: _data[i].f07,
+                      )
+                  ],
+                )),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// data1: _data[i].f02,
+//                 data2: _data[i].f06,
+//                 data3: _data[i].f03,
+//                 data4: _data[i].f05,
+//                 data5: _data[i].f04,
+
+class _BOXsow extends StatelessWidget {
+  _BOXsow({
+    Key? key,
+    this.data1,
+    this.data2,
+    this.data3,
+    this.data4,
+    this.data5,
+    this.data6,
+  }) : super(key: key);
+
+  String? data1;
+  String? data2;
+  String? data3;
+  String? data4;
+  String? data5;
+  String? data6;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsetsDirectional.only(start: 40),
+        child: Column(
+          children: [
+            SizedBox(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  // height: 40,
+                  child: Text(
+                    "COIL NAME-: ${data1 ?? ''}",
+                    style: const TxtStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  // height: 40,
+                  child: Text(
+                    "COIL NO------: ${data2 ?? ''}",
+                    style: const TxtStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  // height: 40,
+                  child: Text(
+                    "CONDITION-: ${data3 ?? ''}",
+                    style: const TxtStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  // height: 40,
+                  child: Text(
+                    "MAX CAP----: ${data4 ?? ''}",
+                    style: const TxtStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  color: Color.fromRGBO(0, 0, 0, 1),
+                  // height: 40,
+                  child: Text(
+                    "ACTUAL------: ${data5 ?? ''}",
+                    style: const TxtStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  // height: 40,
+                  child: Text(
+                    "STATUS-------: ${data6 ?? ''}",
+                    style: const TxtStyle(color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+//COIL NAME : 
+//COIL NO   : 
+//CONDITION : 
+//MAX CAP   : 
+//ACTUAL    : 
+//STATUS    : 

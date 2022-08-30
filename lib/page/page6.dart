@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc/BlocEvent/06-INDcoil.dart';
-import '../bloc/BlocEvent/06-INDcoilDROPDOWN.dart';
+import '../bloc/BlocEvent/06-1-INDcoil.dart';
+import '../bloc/BlocEvent/06-2-INDcoilDROPDOWN.dart';
 import '../data/model.dart';
 import 'P6INDCOIL/INDCOILMain.dart';
 import 'page0.dart';

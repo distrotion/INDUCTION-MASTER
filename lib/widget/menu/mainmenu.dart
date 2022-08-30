@@ -8,6 +8,7 @@ import '../../page/page5.dart';
 import '../../page/page6.dart';
 import '../../page/page7.dart';
 import '../../page/page8.dart';
+import '../../page/page9.dart';
 import 'sub_widget.dart';
 
 late BuildContext MenuContext;
@@ -144,12 +145,18 @@ class _Data_Menu_mainmenuState extends State<Data_Menu_mainmenu> {
           ),
           if (menupop01) ...[
             SizedBox(
-              height: 135,
+              height: 180,
               child: Column(
                 children: [
                   menu_sub(
                     name: "COIL COUTER BY \n   DATE",
                     page: Page8(),
+                    tapcolor: Colors.blue,
+                    Lv: 1,
+                  ),
+                  menu_sub(
+                    name: "ACTUAL COIL",
+                    page: Page9(),
                     tapcolor: Colors.blue,
                     Lv: 1,
                   ),

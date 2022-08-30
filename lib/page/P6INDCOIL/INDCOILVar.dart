@@ -18,6 +18,18 @@ class INDcoil {
   static String con10 = '';
 
   static List<MapEntry<String, String>> dropdown = [MapEntry("", "")];
+
+  static bool Snc = true;
+  static String Scon01 = '';
+  static String Scon02 = '';
+  static String Scon03 = '';
+  static String Scon04 = '';
+  static String Scon05 = '';
+  static String Scon06 = '';
+  static String Scon07 = '';
+  static String Scon08 = '';
+  static String Scon09 = '';
+  static String Scon10 = '';
 }
 
 class INDcoiltap {
