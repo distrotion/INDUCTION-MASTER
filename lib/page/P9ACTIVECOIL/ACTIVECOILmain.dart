@@ -8,6 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/BlocEvent/09-1-INDgetallActual.dart';
 import '../../data/model.dart';
 
+late BuildContext ACTIVECOILmaincontext;
+
 class ACTIVECOILmain extends StatefulWidget {
   ACTIVECOILmain({Key? key, this.data}) : super(key: key);
   List<dataset>? data;
@@ -24,6 +26,7 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
 
   @override
   Widget build(BuildContext context) {
+    ACTIVECOILmaincontext = context;
     List<dataset> _data = widget.data ?? [];
     return SizedBox(
       width: 600,

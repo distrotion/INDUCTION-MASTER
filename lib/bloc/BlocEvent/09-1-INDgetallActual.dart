@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
@@ -8,7 +9,9 @@ import '../../data/datadummy.dart';
 import '../../data/model.dart';
 import '../../page/02INDreport/INDreportMAIN.dart';
 import '../../page/P8INCOILBYDATE/INCOILBYDATEvar.dart';
+import '../../page/P9ACTIVECOIL/ACTIVECOILmain.dart';
 import '../../page/page2.dart';
+import '../../widget/common/Loading copy.dart';
 
 //-------------------------------------------------
 
@@ -28,6 +31,7 @@ class INDgetallActual_Bloc extends Bloc<INDgetallActual_Event, List<dataset>> {
   }
   Future<void> _INDgetallActualGet_Function(
       List<dataset> toAdd, Emitter<List<dataset>> emit) async {
+    FreeLoading(ACTIVECOILmaincontext);
     final response = await Dio().post(
       server + "getallACTUAL",
       data: {},
@@ -36,6 +40,7 @@ class INDgetallActual_Bloc extends Bloc<INDgetallActual_Event, List<dataset>> {
     List<dataset> output = [];
 
     if (response.statusCode == 200) {
+      Navigator.pop(ACTIVECOILmaincontext);
       var databuff = response.data;
       if (databuff != null && databuff.length > 0) {
         //------------------------------
@@ -68,6 +73,7 @@ class INDgetallActual_Bloc extends Bloc<INDgetallActual_Event, List<dataset>> {
         //------------------------------
       }
     } else {
+      Navigator.pop(ACTIVECOILmaincontext);
       print("NO SERVICE");
     }
 

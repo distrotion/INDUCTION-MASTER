@@ -1,16 +1,20 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/global.dart';
 import '../../data/model.dart';
+import '../../page/P6INDCOIL/INDCOILTable.dart';
 import '../../page/P6INDCOIL/INDCOILVar.dart';
+import '../../widget/common/Loading copy.dart';
 
 abstract class INDgetACDataSetEvent {}
 
 // String server = 'http://127.0.0.1:14500/';
 String server = 'http://172.23.10.40:14500/';
-// String server = GserverNEW;
 
+// String server = GserverNEW;
+//INDcoilContexttable
 class GetDataPressedX extends INDgetACDataSetEvent {}
 
 class CounterValue extends INDgetACDataSetBloc {
@@ -27,6 +31,7 @@ class INDgetACDataSetBloc extends Bloc<INDgetACDataSetEvent, List<dataset>> {
   }
   Future<void> _getdata(
       List<dataset> toAdd, Emitter<List<dataset>> emit) async {
+    FreeLoading(INDcoilContexttable);
     final response = await Dio().post(
       server + "getSingleACTUAL",
       data: {"WID": INDcoil.Scon01},
@@ -34,6 +39,7 @@ class INDgetACDataSetBloc extends Bloc<INDgetACDataSetEvent, List<dataset>> {
     List<dataset> output = [];
 
     if (response.statusCode == 200) {
+      Navigator.pop(INDcoilContexttable);
       // var databuff = jsonDecode(response.body);
       var databuff = response.data;
       for (int i = 0; i < databuff.length; i++) {
@@ -60,7 +66,9 @@ class INDgetACDataSetBloc extends Bloc<INDgetACDataSetEvent, List<dataset>> {
               : '',
         ));
       }
-    } else {}
+    } else {
+      Navigator.pop(INDcoilContexttable);
+    }
 
     emit(output);
   }

@@ -13,6 +13,8 @@ import 'INCOILBYDATEvar.dart';
 
 // DateTime selectedDate = DateTime.now();
 
+late BuildContext INCOILBYDATEmaincontext;
+
 class INCOILBYDATEmain extends StatefulWidget {
   INCOILBYDATEmain({Key? key, this.data}) : super(key: key);
   List<dataset>? data;
@@ -24,6 +26,7 @@ class INCOILBYDATEmain extends StatefulWidget {
 class _INCOILBYDATEmainState extends State<INCOILBYDATEmain> {
   @override
   Widget build(BuildContext context) {
+    INCOILBYDATEmaincontext = context;
     Pagememory = 2;
     Future<void> _selectDateSTART(BuildContext context) async {
       final DateTime? picked = await showDatePicker(
