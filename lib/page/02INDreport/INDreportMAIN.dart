@@ -4,7 +4,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/BlocEvent/CsvExportEvent.dart';
+import '../../bloc/BlocEvent/02-CsvExportEvent.dart';
 import '../../data/global.dart';
 import '../../data/model.dart';
 import '../../widget/table/exportTable.dart';
@@ -175,6 +175,7 @@ ExpCSV(List data) {
       row.add('HEAD CENTER REV');
       row.add('TAIL CENTER REV');
       row.add('CYCLE TIME'); //F67
+      row.add('COIL'); //F73
     } else {
       row.add(data[i]['date']);
       row.add(data[i]['BARCODE']);
@@ -245,6 +246,7 @@ ExpCSV(List data) {
       row.add(data[i]['HEAD CENTER REV']);
       row.add(data[i]['TAIL CENTER REV']);
       row.add(data[i]['CYCLE TIME']);
+      row.add(data[i]['COIL']); //F73
     }
 
     rows.add(row);
