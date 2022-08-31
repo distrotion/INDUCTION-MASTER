@@ -29,10 +29,34 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
     ACTIVECOILmaincontext = context;
     List<dataset> _data = widget.data ?? [];
     return SizedBox(
-      width: 600,
+      width: 550,
       child: SingleChildScrollView(
         child: Column(
           children: [
+            Align(
+              alignment: Alignment.centerRight,
+              child: InkWell(
+                onTap: () {
+                  context
+                      .read<INDgetallActual_Bloc>()
+                      .add(INDgetallActualGetData());
+                },
+                child: Container(
+                  width: 100,
+                  height: 30,
+                  color: Colors.blue,
+                  child: const Center(
+                    child: Text(
+                      "RELOAD",
+                      style: TxtStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Row(
               children: [
                 Container(
