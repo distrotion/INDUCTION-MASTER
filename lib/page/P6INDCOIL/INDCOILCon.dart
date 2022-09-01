@@ -37,11 +37,11 @@ class _INDcoilconSTfullState extends State<INDcoilconSTfull> {
       // color: Colors.blue,
       child: Dialog(
         child: Container(
-          height: 500,
+          height: 600,
           child: SingleChildScrollView(
             // scrollDirection: Axis.horizontal,
             child: Container(
-                height: 500,
+                height: 600,
                 width: 500,
                 color: Colors.white,
                 child: Row(
@@ -68,6 +68,21 @@ class _INDcoilconSTfullState extends State<INDcoilconSTfull> {
                               sValue: INDcoil.con02,
                               returnfunc: (String s) {
                                 INDcoil.con02 = s;
+                              },
+                            ),
+                            ComInputText(
+                              nLimitedChar: 8,
+                              // isEnabled: INDcoil.nc,
+                              sLabel: "COIN NAME",
+                              height: 40,
+                              width: 300,
+                              isContr: INDcoil.iscon01,
+                              fnContr: (input) {
+                                INDcoil.iscon01 = input;
+                              },
+                              sValue: INDcoil.con09,
+                              returnfunc: (String s) {
+                                INDcoil.con09 = s;
                               },
                             ),
                             SizedBox(

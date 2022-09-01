@@ -72,6 +72,9 @@ class INDgetallActual_Bloc extends Bloc<INDgetallActual_Event, List<dataset>> {
             f08: databuff[i]['TOTAL'] != null
                 ? databuff[i]['TOTAL'].toString()
                 : '',
+            f09: databuff[i]['MODEL'] != null
+                ? databuff[i]['MODEL'].toString()
+                : '',
           ));
         }
         //------------------------------

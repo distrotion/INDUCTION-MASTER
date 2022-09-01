@@ -128,6 +128,7 @@ class _INDcoilDataTableState extends State<INDcoilDataTable> {
                               INDcoil.con05 = '';
                               INDcoil.con06 = '';
                               INDcoil.con07 = '';
+                              INDcoil.con09 = '';
                               INDcoil.dropdown = widget.dropdown ?? [];
 
                               INDcoilConsoleBox();
@@ -153,6 +154,11 @@ class _INDcoilDataTableState extends State<INDcoilDataTable> {
                         onSort: (int columnIndex, bool ascending) =>
                             _sort<String>(
                                 (dataset d) => d.f02, columnIndex, ascending)),
+                    DataColumn(
+                        label: const Text('MODEL'),
+                        onSort: (int columnIndex, bool ascending) =>
+                            _sort<String>(
+                                (dataset d) => d.f09, columnIndex, ascending)),
                     DataColumn(
                         label: const Text('COIL NO'),
                         onSort: (int columnIndex, bool ascending) =>
@@ -221,7 +227,8 @@ class _MyData extends DataTableSource {
     for (int i = 0; i < _data.length; i++) {
       if (_data[i].f02.toLowerCase().contains(_searchResult) ||
           _data[i].f03.toLowerCase().contains(_searchResult) ||
-          _data[i].f04.toLowerCase().contains(_searchResult)) {
+          _data[i].f04.toLowerCase().contains(_searchResult) ||
+          _data[i].f09.toLowerCase().contains(_searchResult)) {
         _data_exp.add(_data[i]);
       }
     }
@@ -259,6 +266,7 @@ class _MyData extends DataTableSource {
         cells: [
           // DataCell(Text(data.id.toString())),
           DataCell(Text(data.f02)),
+          DataCell(Text(data.f09)),
           DataCell(Text(data.f06)),
           DataCell(Text(data.f03)),
           DataCell(Text(data.f05)),
@@ -294,6 +302,7 @@ class _MyData extends DataTableSource {
                   INDcoil.con05 = data.f05;
                   INDcoil.con06 = data.f06;
                   INDcoil.con07 = data.f07;
+                  INDcoil.con09 = data.f09;
                   INDcoil.dropdown = dropdown ?? [];
                   INDcoilConsoleBox();
                   // print(data.f01);

@@ -29,7 +29,7 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
     ACTIVECOILmaincontext = context;
     List<dataset> _data = widget.data ?? [];
     return SizedBox(
-      width: 650,
+      width: 750,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -60,7 +60,7 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
             Row(
               children: [
                 Container(
-                  width: 150,
+                  width: 100,
                   height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -68,6 +68,17 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
                   ),
                   child: const Center(
                     child: Text("COIL NAME"),
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.black, width: 2),
+                  ),
+                  child: const Center(
+                    child: Text("MODEL"),
                   ),
                 ),
                 Container(
@@ -141,6 +152,7 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
                 data4: _data[i].f05,
                 data5: _data[i].f04,
                 data6: _data[i].f08,
+                data7: _data[i].f09,
               )
           ],
         ),
@@ -158,6 +170,7 @@ class _table extends StatelessWidget {
     this.data4,
     this.data5,
     this.data6,
+    this.data7,
   }) : super(key: key);
   String? data1;
   String? data2;
@@ -165,11 +178,23 @@ class _table extends StatelessWidget {
   String? data4;
   String? data5;
   String? data6;
+  String? data7;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
+        Container(
+          width: 100,
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: Colors.black, width: 2),
+          ),
+          child: Center(
+            child: Text(data1 ?? ''),
+          ),
+        ),
         Container(
           width: 150,
           height: 40,
@@ -178,7 +203,7 @@ class _table extends StatelessWidget {
             border: Border.all(color: Colors.black, width: 2),
           ),
           child: Center(
-            child: Text(data1 ?? ''),
+            child: Text(data7 ?? ''),
           ),
         ),
         Container(

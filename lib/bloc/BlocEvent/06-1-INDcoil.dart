@@ -8,7 +8,7 @@ import '../../page/P6INDCOIL/datatest.dart';
 
 abstract class INDcoilDataSetEvent {}
 
-// String server = 'http://127.0.0.1:15000/';
+// String server = 'http://127.0.0.1:14500/';
 String server = GserverNEW;
 
 class GetDataPressed extends INDcoilDataSetEvent {}
@@ -44,13 +44,28 @@ class INDcoilDataSetBloc extends Bloc<INDcoilDataSetEvent, List<dataset>> {
       for (int i = 0; i < databuff.length; i++) {
         output.add(dataset(
           id: i + 1,
-          f01: databuff[i]['WID'],
-          f02: databuff[i]['COIL_NAME'],
-          f03: databuff[i]['PATTERN'],
-          f04: databuff[i]['COUNTER'],
-          f05: databuff[i]['LIMIT'],
-          f06: databuff[i]['COIL_NO'],
-          f07: databuff[i]['STATUS'],
+          f01: databuff[i]['WID'] != null ? databuff[i]['WID'].toString() : '',
+          f02: databuff[i]['COIL_NAME'] != null
+              ? databuff[i]['COIL_NAME'].toString()
+              : '',
+          f03: databuff[i]['PATTERN'] != null
+              ? databuff[i]['PATTERN'].toString()
+              : '',
+          f04: databuff[i]['COUNTER'] != null
+              ? databuff[i]['COUNTER'].toString()
+              : '0',
+          f05: databuff[i]['LIMIT'] != null
+              ? databuff[i]['LIMIT'].toString()
+              : '0',
+          f06: databuff[i]['COIL_NO'] != null
+              ? databuff[i]['COIL_NO'].toString()
+              : '',
+          f07: databuff[i]['STATUS'] != null
+              ? databuff[i]['STATUS'].toString()
+              : '',
+          f09: databuff[i]['MODEL'] != null
+              ? databuff[i]['MODEL'].toString()
+              : '',
         ));
       }
     } else {}
@@ -69,6 +84,7 @@ class INDcoilDataSetBloc extends Bloc<INDcoilDataSetEvent, List<dataset>> {
         "LIMIT": INDcoil.con05,
         "COIL_NO": INDcoil.con06,
         "STATUS": INDcoil.con07,
+        "MODEL": INDcoil.con09,
       },
     );
 
@@ -93,13 +109,28 @@ class INDcoilDataSetBloc extends Bloc<INDcoilDataSetEvent, List<dataset>> {
       for (int i = 0; i < databuff.length; i++) {
         output.add(dataset(
           id: i + 1,
-          f01: databuff[i]['WID'],
-          f02: databuff[i]['COIL_NAME'],
-          f03: databuff[i]['PATTERN'],
-          f04: databuff[i]['COUNTER'],
-          f05: databuff[i]['LIMIT'],
-          f06: databuff[i]['COIL_NO'],
-          f07: databuff[i]['STATUS'],
+          f01: databuff[i]['WID'] != null ? databuff[i]['WID'].toString() : '',
+          f02: databuff[i]['COIL_NAME'] != null
+              ? databuff[i]['COIL_NAME'].toString()
+              : '',
+          f03: databuff[i]['PATTERN'] != null
+              ? databuff[i]['PATTERN'].toString()
+              : '',
+          f04: databuff[i]['COUNTER'] != null
+              ? databuff[i]['COUNTER'].toString()
+              : '0',
+          f05: databuff[i]['LIMIT'] != null
+              ? databuff[i]['LIMIT'].toString()
+              : '0',
+          f06: databuff[i]['COIL_NO'] != null
+              ? databuff[i]['COIL_NO'].toString()
+              : '',
+          f07: databuff[i]['STATUS'] != null
+              ? databuff[i]['STATUS'].toString()
+              : '',
+          f09: databuff[i]['MODEL'] != null
+              ? databuff[i]['MODEL'].toString()
+              : '',
         ));
       }
     } else {}
