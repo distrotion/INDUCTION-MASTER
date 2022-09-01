@@ -16,8 +16,8 @@ import '../../widget/common/Loading copy.dart';
 //-------------------------------------------------
 
 var csvdata = [];
-// String server = 'http://172.23.10.40:14500/';
-String server = 'http://127.0.0.1:14500/';
+String server = 'http://172.23.10.40:14500/';
+// String server = 'http://127.0.0.1:14500/';
 
 abstract class INDgetallActual_Event {}
 
