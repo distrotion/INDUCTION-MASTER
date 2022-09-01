@@ -16,8 +16,8 @@ import '../../widget/common/Loading copy.dart';
 //-------------------------------------------------
 
 var csvdata = [];
-String server = 'http://172.23.10.40:14500/';
-// String server = 'http://127.0.0.1:14500/';
+// String server = 'http://172.23.10.40:14500/';
+String server = 'http://127.0.0.1:14500/';
 
 abstract class INDgetallActual_Event {}
 
@@ -38,6 +38,7 @@ class INDgetallActual_Bloc extends Bloc<INDgetallActual_Event, List<dataset>> {
     );
 
     List<dataset> output = [];
+    List<dataset> outputTA = [];
 
     if (response.statusCode == 200) {
       Navigator.pop(ACTIVECOILmaincontext);
@@ -58,7 +59,7 @@ class INDgetallActual_Bloc extends Bloc<INDgetallActual_Event, List<dataset>> {
                 : '',
             f04: databuff[i]['COUNTER'] != null
                 ? databuff[i]['COUNTER'].toString()
-                : '',
+                : '0',
             f05: databuff[i]['LIMIT'] != null
                 ? databuff[i]['LIMIT'].toString()
                 : '',
@@ -68,8 +69,26 @@ class INDgetallActual_Bloc extends Bloc<INDgetallActual_Event, List<dataset>> {
             f07: databuff[i]['STATUS'] != null
                 ? databuff[i]['STATUS'].toString()
                 : '',
+            f08: databuff[i]['TOTAL'] != null
+                ? databuff[i]['TOTAL'].toString()
+                : '',
           ));
         }
+        //------------------------------
+
+        // for (int i = 0; i < output.length; i++) {
+        //   output[i].f08 = output[i].f04;
+        //   for (int j = 0; j < output.length; j++) {
+        //     if (output[i].f01 != output[j].f01 &&
+        //         output[i].f02 == output[j].f02 &&
+        //         output[i].f06 == output[j].f06) {
+        //       output[i].f08 =
+        //           (int.parse(output[i].f08) + int.parse(output[j].f04))
+        //               .toString();
+        //       // print(output[i].f08);
+        //     }
+        //   }
+        // }
         //------------------------------
       }
     } else {

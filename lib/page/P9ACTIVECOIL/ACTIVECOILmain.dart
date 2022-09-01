@@ -29,7 +29,7 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
     ACTIVECOILmaincontext = context;
     List<dataset> _data = widget.data ?? [];
     return SizedBox(
-      width: 550,
+      width: 650,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -117,6 +117,20 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
                     ),
                   ),
                 ),
+                Container(
+                  width: 100,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    border: Border.all(color: Colors.blue, width: 2),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "TOTAL",
+                      style: TxtStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
               ],
             ),
             for (int i = 0; i < _data.length; i++)
@@ -126,6 +140,7 @@ class _ACTIVECOILmainState extends State<ACTIVECOILmain> {
                 data3: _data[i].f03,
                 data4: _data[i].f05,
                 data5: _data[i].f04,
+                data6: _data[i].f08,
               )
           ],
         ),
@@ -142,12 +157,14 @@ class _table extends StatelessWidget {
     this.data3,
     this.data4,
     this.data5,
+    this.data6,
   }) : super(key: key);
   String? data1;
   String? data2;
   String? data3;
   String? data4;
   String? data5;
+  String? data6;
 
   @override
   Widget build(BuildContext context) {
@@ -207,6 +224,20 @@ class _table extends StatelessWidget {
           child: Center(
             child: Text(
               data5 ?? '',
+              style: TxtStyle(color: Colors.white),
+            ),
+          ),
+        ),
+        Container(
+          width: 100,
+          height: 40,
+          decoration: BoxDecoration(
+            color: Colors.black,
+            border: Border.all(color: Colors.blue, width: 2),
+          ),
+          child: Center(
+            child: Text(
+              data6 ?? '',
               style: TxtStyle(color: Colors.white),
             ),
           ),
