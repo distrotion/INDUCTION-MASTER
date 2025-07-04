@@ -17,6 +17,7 @@ class JGCreportVAR {
   static bool WNGbutton = true;
   static bool NGbutton = true;
   static bool AENGbutton = true;
+  static bool QASSNGbutton = true;
   //--------------------------
   static String DATEsum = '';
   static double ALL_AUTOsum = 0;
@@ -24,6 +25,7 @@ class JGCreportVAR {
   static double WNGsum = 0;
   static double NGsum = 0;
   static double AENGsum = 0;
+  static double QASSNGsum = 0;
   //--------------------------
 }
 
@@ -48,6 +50,7 @@ class datain {
     this.WNG = 0.0,
     this.NG = 0.0,
     this.AENG = 0.0,
+    this.QASSNG = 0.0,
   });
 
   String STATUS;
@@ -57,6 +60,7 @@ class datain {
   double WNG;
   double NG;
   double AENG;
+  double QASSNG;
 }
 
 // {

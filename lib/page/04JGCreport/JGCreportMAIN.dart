@@ -30,6 +30,7 @@ class JGCreportMAIN extends StatelessWidget {
       JGCreportVAR.WNGsum = data!.WNG;
       JGCreportVAR.NGsum = data!.NG;
       JGCreportVAR.AENGsum = data!.AENG;
+      JGCreportVAR.QASSNGsum = data!.QASSNG;
       data!.STATUS = '';
       print("------>");
       BlocProvider.of<BlocPageRebuild>(context).rebuildPage();
@@ -91,7 +92,7 @@ class JGCreportMAIN extends StatelessWidget {
                                                     context)
                                                 .rebuildPage();
                                           },
-                                          tabCOLOR: Colors.red.shade200,
+                                          tabCOLOR: Colors.red.shade100,
                                         ),
                                         _selectBUTTON(
                                           //
@@ -103,7 +104,7 @@ class JGCreportMAIN extends StatelessWidget {
                                                     context)
                                                 .rebuildPage();
                                           },
-                                          tabCOLOR: Colors.red.shade500,
+                                          tabCOLOR: Colors.red.shade300,
                                         ),
                                         _selectBUTTON(
                                           //
@@ -115,7 +116,19 @@ class JGCreportMAIN extends StatelessWidget {
                                                     context)
                                                 .rebuildPage();
                                           },
-                                          tabCOLOR: Colors.red.shade800,
+                                          tabCOLOR: Colors.red.shade600,
+                                        ),
+                                        _selectBUTTON(
+                                          //
+                                          text: "QASSNG",
+                                          select: JGCreportVAR.QASSNGbutton,
+                                          selectfn: (b) {
+                                            JGCreportVAR.QASSNGbutton = b;
+                                            BlocProvider.of<BlocPageRebuild>(
+                                                    context)
+                                                .rebuildPage();
+                                          },
+                                          tabCOLOR: Colors.red.shade900,
                                         ),
                                       ],
                                     ),
@@ -135,6 +148,9 @@ class JGCreportMAIN extends StatelessWidget {
                                         : 0,
                                     datainput4: JGCreportVAR.AENGbutton
                                         ? JGCreportVAR.AENGsum
+                                        : 0,
+                                    datainput5: JGCreportVAR.QASSNGbutton
+                                        ? JGCreportVAR.QASSNGsum
                                         : 0,
                                   ),
                                 ),
@@ -419,7 +435,7 @@ class JGCreportMAIN extends StatelessWidget {
                             Container(
                               height: 50,
                               width: 500,
-                              color: Colors.red.shade200,
+                              color: Colors.red.shade100,
                               child: _datainside(
                                   text: "WNG",
                                   data: JGCreportVAR.WNGsum.toString()),
@@ -430,7 +446,7 @@ class JGCreportMAIN extends StatelessWidget {
                             Container(
                               height: 50,
                               width: 500,
-                              color: Colors.red.shade500,
+                              color: Colors.red.shade300,
                               child: _datainside(
                                   text: "NG",
                                   data: JGCreportVAR.NGsum.toString()),
@@ -441,13 +457,21 @@ class JGCreportMAIN extends StatelessWidget {
                             Container(
                               height: 50,
                               width: 500,
-                              color: Colors.red.shade800,
+                              color: Colors.red.shade600,
                               child: _datainside(
                                   text: "AENG",
                                   data: JGCreportVAR.AENGsum.toString()),
                             ),
                             const SizedBox(
                               height: 10,
+                            ),
+                            Container(
+                              height: 50,
+                              width: 500,
+                              color: Colors.red.shade900,
+                              child: _datainside(
+                                  text: "QASS NG",
+                                  data: JGCreportVAR.QASSNGsum.toString()),
                             ),
                           ],
                         ),

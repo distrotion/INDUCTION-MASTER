@@ -41,15 +41,17 @@ class JGCdashboardGET_Bloc
           ? databuff['datedataMEM2'].toString()
           : '';
       output.ALL_AUTO =
-          databuff['ALL_AUTO'] != null ? databuff['ALL_AUTO'].toString() : '';
+          databuff['ALL_AUTO'] != null ? databuff['ALL_AUTO'].toString() : '0';
 
-      output.OK = databuff['OK'] != null ? databuff['OK'].toString() : '';
+      output.OK = databuff['OK'] != null ? databuff['OK'].toString() : '0';
 
-      output.WNG = databuff['WNG'] != null ? databuff['WNG'].toString() : '';
+      output.WNG = databuff['WNG'] != null ? databuff['WNG'].toString() : '0';
 
-      output.NG = databuff['NG'] != null ? databuff['NG'].toString() : '';
+      output.NG = databuff['NG'] != null ? databuff['NG'].toString() : '0';
 
-      output.AENG = databuff['AENG'] != null ? databuff['AENG'].toString() : '';
+      output.AENG = databuff['AENG'] != null ? databuff['AENG'].toString() : '0';
+
+      output.QASSNG = databuff['QASSNG'] != null ? databuff['QASSNG'].toString() : '0';
     }
 
     emit(output);

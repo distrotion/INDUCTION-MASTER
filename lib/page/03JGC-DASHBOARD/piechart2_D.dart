@@ -9,12 +9,14 @@ class PieChart3 extends StatefulWidget {
       this.datainput1,
       this.datainput2,
       this.datainput3,
-      this.datainput4})
+      this.datainput4,
+      this.datainput5})
       : super(key: key);
   double? datainput1;
   double? datainput2;
   double? datainput3;
   double? datainput4;
+  double? datainput5;
   @override
   PieChart2State createState() => PieChart2State();
 }
@@ -31,9 +33,10 @@ class PieChart2State extends State<PieChart3> {
 
   final colorList = <Color>[
     Colors.green,
-    Colors.red.shade200,
-    Colors.red.shade500,
-    Colors.red.shade800,
+    Colors.red.shade100,
+    Colors.red.shade300,
+    Colors.red.shade600,
+    Colors.red.shade900,
     const Color(0xff6c5ce7),
   ];
 
@@ -78,12 +81,14 @@ class PieChart2State extends State<PieChart3> {
     double _datainput2 = widget.datainput2 ?? 0;
     double _datainput3 = widget.datainput3 ?? 0;
     double _datainput4 = widget.datainput4 ?? 0;
+    double _datainput5 = widget.datainput5 ?? 0;
 
     final dataMap = <String, double>{
       "OK": _datainput1,
       "WNG": _datainput2,
       "NG": _datainput3,
       "AENG": _datainput4,
+      "QASS NG": _datainput5,
     };
     final chart = PieChart(
       key: ValueKey(key),

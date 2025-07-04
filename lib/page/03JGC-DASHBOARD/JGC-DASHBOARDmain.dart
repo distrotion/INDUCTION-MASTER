@@ -49,6 +49,7 @@ class _JGC_DASHBOARDmainState extends State<JGC_DASHBOARDmain> {
         JGC_DASHBOARD.WNG = widget.dataDH!.WNG;
         JGC_DASHBOARD.NG = widget.dataDH!.NG;
         JGC_DASHBOARD.AENG = widget.dataDH!.AENG;
+        JGC_DASHBOARD.QASSNG = widget.dataDH!.QASSNG;
         widget.dataDH!.statusin = '';
       }
     }
@@ -191,6 +192,7 @@ class _JGC_DASHBOARDmainState extends State<JGC_DASHBOARDmain> {
                               datainput2: double.parse(JGC_DASHBOARD.WNG),
                               datainput3: double.parse(JGC_DASHBOARD.NG),
                               datainput4: double.parse(JGC_DASHBOARD.AENG),
+                              datainput5: double.parse(JGC_DASHBOARD.QASSNG),
                             ),
                           ),
                         ),
@@ -223,7 +225,7 @@ class _JGC_DASHBOARDmainState extends State<JGC_DASHBOARDmain> {
                                 Container(
                                   height: 50,
                                   width: 500,
-                                  color: Colors.red.shade200,
+                                  color: Colors.red.shade100,
                                   child: _datainside(
                                       text: "WNG", data: JGC_DASHBOARD.WNG),
                                 ),
@@ -233,7 +235,7 @@ class _JGC_DASHBOARDmainState extends State<JGC_DASHBOARDmain> {
                                 Container(
                                   height: 50,
                                   width: 500,
-                                  color: Colors.red.shade500,
+                                  color: Colors.red.shade300,
                                   child: _datainside(
                                       text: "NG", data: JGC_DASHBOARD.NG),
                                 ),
@@ -243,13 +245,21 @@ class _JGC_DASHBOARDmainState extends State<JGC_DASHBOARDmain> {
                                 Container(
                                   height: 50,
                                   width: 500,
-                                  color: Colors.red.shade800,
+                                  color: Colors.red.shade600,
                                   child: _datainside(
                                       text: "AENG", data: JGC_DASHBOARD.AENG),
                                 ),
                                 const SizedBox(
                                   height: 10,
                                 ),
+                                Container(
+                                  height: 50,
+                                  width: 500,
+                                  color: Colors.red.shade900,
+                                  child: _datainside(
+                                      text: "QASSNG", data: JGC_DASHBOARD.QASSNG),
+                                )
+
                               ],
                             ),
                           ),

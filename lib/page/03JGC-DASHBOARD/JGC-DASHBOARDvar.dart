@@ -10,6 +10,7 @@ class JGCDASHBOARDclass {
     this.WNG = '',
     this.NG = '',
     this.AENG = '',
+    this.QASSNG = ''
   });
   String statusin;
   String currentPIC;
@@ -21,6 +22,7 @@ class JGCDASHBOARDclass {
   String WNG;
   String NG;
   String AENG;
+  String QASSNG;
 }
 
 class JGC_DASHBOARD {
@@ -32,4 +34,5 @@ class JGC_DASHBOARD {
   static String WNG = '0';
   static String NG = '0';
   static String AENG = '0';
+  static String QASSNG = '0';
 }

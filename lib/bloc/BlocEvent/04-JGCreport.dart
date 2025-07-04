@@ -50,6 +50,7 @@ class JGCreportGET_Bloc extends Bloc<JGCreportGET_Event, datain> {
         output.WNG = double.parse(databuff['WNG'].toString());
         output.NG = double.parse(databuff['NG'].toString());
         output.AENG = double.parse(databuff['AENG'].toString());
+        output.QASSNG = double.parse(databuff['QASSNG'].toString());
       } else {
         WORNINGpop(JGCreportMAINcontext, ["Date error"], 100, 300);
       }
